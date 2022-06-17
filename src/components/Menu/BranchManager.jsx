@@ -15,10 +15,10 @@ export default function Manager() {
         '/'
     return (
         <Menu theme="dark" defaultSelectedKeys={[selected]} mode="inline">
-            <Menu.Item key="/" icon={<DashboardOutlined />}>
+            {/* <Menu.Item key="/" icon={<DashboardOutlined />}>
                 <Link to="/" />
                 Dashboard
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item key="pitch" icon={<SisternodeOutlined />}>
                 <Link to="/pitch" />
                 Quản lý sân bóng

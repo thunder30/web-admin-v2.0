@@ -165,7 +165,7 @@ function CrudPrice({ prices = [], pitchTypeId = null }) {
                     title="Bảng giá"
                     style={{
                         minHeight: 200,
-                        backgroundColor: '#92e1a082', // #d5d5d5
+                        backgroundColor: '#eea61f', // #d5d5d5
                         marginTop: 6,
                     }}
                     extra={

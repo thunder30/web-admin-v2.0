@@ -17,10 +17,10 @@ export default function Manager() {
     )
     return (
         <Menu theme="dark" defaultSelectedKeys={[selected]} mode="inline">
-            <Menu.Item key="admin" icon={<DashboardOutlined />}>
+            {/* <Menu.Item key="admin" icon={<DashboardOutlined />}>
                 <Link to="/admin" />
                 Dashboard
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item key="admin/customer" icon={<UserOutlined />}>
                 <Link to="/admin/customer" />
                 Tài khoản khách hàng

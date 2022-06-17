@@ -13,7 +13,8 @@ import {
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
 import { AuthContext } from '../contexts/AuthProvider'
-import landing from '../assets/auth/undraw_all_the_data_re_hh4w.svg'
+// import landing from '../assets/auth/undraw_all_the_data_re_hh4w.svg'
+import landing from '../assets/auth/corgin-logo.png'
 
 const { Item } = Form
 const { Text, Paragraph } = Typography
@@ -83,7 +84,7 @@ function Login() {
                 <WrapperStyled>
                     <div>
                         <TextStyled>
-                            Đăng nhập cùng <Text strong>Pate Team</Text>{' '}
+                            Đăng nhập cùng <Text strong>Corgi Soccer</Text>{' '}
                         </TextStyled>
                         <ParagraphStyled>
                             Quản lý sân bóng của bạn một cách hiệu quả.
@@ -113,7 +114,7 @@ function Login() {
                                 prefix={
                                     <UserOutlined className="site-form-item-icon" />
                                 }
-                                placeholder="Email"
+                                placeholder="Số điện thoại"
                                 size="large"
                                 value={loginForm.email}
                                 onChange={handleUser}
