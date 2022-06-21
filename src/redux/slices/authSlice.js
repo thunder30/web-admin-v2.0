@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-
 const initialState = {
     isAuthenticated: false,
     user: null,
@@ -33,5 +32,7 @@ export const { authSuccess, authFailure, authLoading } = authSlice.actions
 
 // Selectors - This is how we pull infomation from the Global store slice
 export const selectUser = (state) => {
-    return state.user
+    return state.auth.user
 }
+
+export default authSlice.reducer

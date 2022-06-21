@@ -22,22 +22,22 @@ const getMe = async () => {
     }
 }
 
-const login = async ({ email, password }) => {
+const login = async ({ phone, password }) => {
     try {
         const res = await axios.post(`${BASE_URL}/auth/login`, {
-            email,
+            phone,
             password,
         })
-
+        
         if (res.data.success) {
             if (
-                res.data.roles.includes('CHU_SAN') ||
-                res.data.roles.includes('ADMIN')
+                res.data.data.roles.includes('admin') ||
+                res.data.data.roles.includes('partner')
             ) {
-                setCookie(BASE_URL, res.data.accessToken)
+                setCookie(TOKEN_NAME, res.data.data.accessToken)
             } else {
-                res.data.success = false
-                res.data.message = 'Sai email hoặc mật khẩu!'
+                res.data.data.success = false
+                res.data.data.message = 'Sai số điện thoại hoặc mật khẩu!'
             }
             // get user
         }
@@ -49,18 +49,24 @@ const login = async ({ email, password }) => {
 }
 
 const logout = async () => {
-    token.remove()
+    try {
+        const res = await axios.get(`${BASE_URL}/auth/logout`)
+        removeCookie(TOKEN_NAME)
+        return successHandler(res)
+    } catch (error) {
+        return errorHandler(error)
+    }
 }
 
 const token = {
     get() {
-        return getCookie(BASE_URL)
+        return getCookie(TOKEN_NAME)
     },
     set(token) {
-        setCookie(BASE_URL, token)
+        setCookie(TOKEN_NAME, token)
     },
     remove() {
-        removeCookie(BASE_URL)
+        removeCookie(TOKEN_NAME)
     },
 }
 
