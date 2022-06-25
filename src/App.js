@@ -3,14 +3,14 @@ import AuthProvider from './contexts/AuthProvider'
 import Router from './router'
 import './style/app.less'
 import { Provider } from 'react-redux'
-import {store} from './redux/store'
+import { store } from './redux/store'
 
 function App() {
     return (
         <Provider store={store}>
-        <AuthProvider>
-            <Router />
-        </AuthProvider>
+            <AuthProvider>
+                <Router />
+            </AuthProvider>
         </Provider>
     )
 }

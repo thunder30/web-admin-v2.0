@@ -1,23 +1,38 @@
+import { useSelector } from 'react-redux'
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import Login from '../components/auth/Login'
-import landing from '../assets/auth/undraw_all_the_data_re_hh4w.svg'
-import { AuthContext } from '../contexts/AuthProvider'
-
 import { Row, Col, Image, Spin } from 'antd'
 import { Navigate } from 'react-router-dom'
 
-function Auth({ authRoute }) {
-    const {
-        authState: { isAuthenticated, isLoading },
-    } = useContext(AuthContext)
+import Login from '../components/auth/Login'
+import landing from '../assets/auth/undraw_all_the_data_re_hh4w.svg'
+import { AuthContext } from '../contexts/AuthProvider'
+import { selectLoading, selectAuthenticated } from '../redux/slices/authSlice'
 
-    const WrapperStyled = styled.div`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    `
+const WrapperStyled = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+`
+
+const AuthStyled = styled.div`
+    height: 100vh;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+function Auth({ authRoute }) {
+    // const {
+    //     authState: { isAuthenticated, isLoading },
+    // } = useContext(AuthContext)
+    const isAuthenticated = useSelector(selectAuthenticated)
+    const isLoading = useSelector(selectLoading)
+
     if (isLoading)
         return (
             <WrapperStyled>
@@ -36,15 +51,6 @@ function Auth({ authRoute }) {
 
     const Component = Form[authRoute]
 
-    const AuthStyled = styled.div`
-        height: 100vh;
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 0 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    `
     //
 
     return (
